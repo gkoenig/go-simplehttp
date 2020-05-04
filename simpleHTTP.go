@@ -5,16 +5,19 @@ import (
 	"log"
 	"net"
 	"os"
- 	"net/http"	
+ 	"net/http"
 )
 
 func main() {
+	log.Print("simplehttp: Enter main()")
 	http.HandleFunc("/", handler)
 	log.Fatal(http.ListenAndServe("0.0.0.0:8000", nil))
 }
 
 // printing request headers/params
 func handler(w http.ResponseWriter, r *http.Request) {
+
+	log.Print("request from address: %q\n", r.RemoteAddr)
 	fmt.Fprintf(w, "%s %s %s\n", r.Method, r.URL, r.Proto)
 	for k, v := range r.Header {
 		fmt.Fprintf(w, "Header[%q] = %q\n", k, v)
