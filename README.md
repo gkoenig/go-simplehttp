@@ -12,7 +12,7 @@ This container starts a webserver on port 8000 and returns back
 
 to start _simplehttp_ web server , map local port 8000 into container and provide the env variable **message**:  
 ```bash
-sudo docker run -e message=Hello -p 8000:8000 simplehttp
+sudo docker run -e message=Hello -p 8000:8000 gkoenig/simplehttp
 ```  
 
 output from above call (your IP address will vary):  
